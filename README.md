@@ -1,2 +1,7 @@
 # scraper
-Web scraping library
+Elegant web scraper
+
+npm install
+tsd install
+gulp
+

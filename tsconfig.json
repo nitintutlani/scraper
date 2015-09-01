@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"declaration": false,
+		"module": "commonjs",
+		"noImplicitAny": true,
+		"out": "scraper.js",
+		"outDir": "build",
+		"removeComments": true,
+		"sourceMap": false,
+		"target": "ES5"
+	},
+	"files": [
+		"src/scraper.ts"
+	]
+}

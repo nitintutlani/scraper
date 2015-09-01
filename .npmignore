@@ -1,0 +1,7 @@
+.settings/
+gulpfile.js
+src/
+typings/
+test/
+tsconfig.json
+tsd.json

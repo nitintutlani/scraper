@@ -1,0 +1,26 @@
+{
+  "name": "scraper",
+  "version": "0.1.0",
+  "description": "Elegant web scraper",
+  "main": "./build/scraper.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nitintutlani/scraper.git"
+  },
+  "author": "Nitin Tutlani <nitintutlani@yahoo.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nitintutlani/scraper/issues"
+  },
+  "homepage": "https://github.com/nitintutlani/scraper",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-typescript": "^2.8.1"
+  },
+  "dependencies": {
+    "request": "^2.61.0"
+  }
+}
