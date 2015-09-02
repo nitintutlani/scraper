@@ -16,8 +16,10 @@
         "./typings/tsd.d.ts"
     ],
     "files": [
+        "./src/common.ts",
         "./src/scraper.ts",
-        "./src/test/basic.spec.ts",
+        "./src/sitemap.ts",
+        "./src/test/sitemap.spec.ts",
         "./typings/tsd.d.ts"
     ]
 }
