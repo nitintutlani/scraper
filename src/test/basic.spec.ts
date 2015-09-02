@@ -1,4 +1,5 @@
 import * as assert from "assert";
+import { expect }  from "chai";
 
 describe('Array', function() {
   describe('#indexOf()', function () {
@@ -8,5 +9,11 @@ describe('Array', function() {
       assert.equal(1, [1,2,3].indexOf(2));
       assert.equal(2, [1,2,3].indexOf(3));
     });
+  });
+});
+
+describe('Simple expect', function() {
+  it('string match', function() {
+    expect('nitin').to.be.equal('nitin');
   });
 });

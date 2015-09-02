@@ -3,7 +3,7 @@
         "declaration": false,
         "module": "commonjs",
         "noImplicitAny": true,
-        "rootDir": "project",
+        "rootDir": "src",
         "outDir": "build",
         "removeComments": true,
         "sourceMap": false,
