@@ -1,4 +1,3 @@
-/// <reference path="../typings/node/node.d.ts" />
-/// <reference path="../typings/request/request.d.ts" />
+import * as request from "request";
 
 console.log('Setting up gulp');

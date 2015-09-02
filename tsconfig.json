@@ -1,15 +1,23 @@
 {
-	"compilerOptions": {
-		"declaration": false,
-		"module": "commonjs",
-		"noImplicitAny": true,
-		"out": "scraper.js",
-		"outDir": "build",
-		"removeComments": true,
-		"sourceMap": false,
-		"target": "ES5"
-	},
-	"files": [
-		"src/scraper.ts"
-	]
+    "compilerOptions": {
+        "declaration": false,
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "rootDir": "project",
+        "outDir": "build",
+        "removeComments": true,
+        "sourceMap": false,
+        "target": "ES5"
+    },
+    "compileOnSave": false,
+    "buildOnSave": false,
+    "filesGlob": [
+        "./src/**/*.ts",
+        "./typings/tsd.d.ts"
+    ],
+    "files": [
+        "./src/scraper.ts",
+        "./src/test/basic.spec.ts",
+        "./typings/tsd.d.ts"
+    ]
 }

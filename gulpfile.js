@@ -10,6 +10,13 @@ gulp.task('build', function () {
 	return tsResult.js.pipe(gulp.dest(tsProject.config.compilerOptions.outDir));
 });
 
-gulp.task('default', ['build'], function() {
-	gulp.watch(tsProject.config.files, ['build']);
+var mocha = require('gulp-mocha');
+
+gulp.task('test', function () {
+    return gulp.src(tsProject.config.compilerOptions.outDir + '/**/*.spec.js', {read: false})
+        .pipe(mocha({reporter: 'nyan'}));
+});
+
+gulp.task('default', ['build', 'test'], function() {
+	gulp.watch(tsProject.config.files, ['build', 'test']);
 });

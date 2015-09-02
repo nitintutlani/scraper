@@ -1,4 +1,5 @@
 .settings/
+docs/
 gulpfile.js
 src/
 typings/
