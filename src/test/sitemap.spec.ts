@@ -1,29 +1,31 @@
-import { expect }  from  'chai';
-import { Sitemap } from  '../sitemap';
+import { expect }  from  "chai";
+import { Sitemap } from  "../sitemap";
 
-describe('Sitemap', function() {
-	describe('single page', function() {
-		var sitemap = new Sitemap('test', 'www.example.com/page');
-		it('single page', function() {
-			expect(sitemap.getUrls())
+describe("Class Sitemap", function() {
+	var smSingle = new Sitemap({ name: "test", url: "www.example.com/page"});
+	var smRange = new Sitemap({ name: "test", url: "www.example.com/page/[1-5]"});
+	var smJump = new Sitemap({ name: "test", url: "www.example.com/page/[1-100:10]"});
+	var smPad = new Sitemap({ name: "test", url: "www.example.com/page/[001-003]"});
+	describe("method getUrls", function() {
+		it("single page sitemap", function() {
+			expect(smSingle.getUrls())
 				.length(1)
-				.contain('www.example.com/page');
+				.contain("www.example.com/page");
 		});
-	});
-	describe('page range', function() {
-		var sitemap = new Sitemap('test1', 'www.example.com/page/[1-5]');
-		it('page range',function  () {
-		  expect(sitemap.getUrls())
-			  .length(5)
-			  .contain('www.example.com/page/3');
+		it("page range", function() {
+			expect(smRange.getUrls())
+  			  .length(5)
+  			  .contain("www.example.com/page/3");
 		});
-	});
-	describe('page range jump', function() {
-		var sitemap = new Sitemap('test1', 'www.example.com/page/[1-100:10]');
-		it('page range jump',function  () {
-		  expect(sitemap.getUrls())
-			  .length(10)
-			  .contain('www.example.com/page/91');
+		it("page range jump", function() {
+			expect(smJump.getUrls())
+  			  .length(10)
+  			  .contain("www.example.com/page/91");
+		});
+		it("page range pad", function() {
+			expect(smPad.getUrls())
+				.length(3)
+				.contain("www.example.com/page/002");
 		});
 	});
 });

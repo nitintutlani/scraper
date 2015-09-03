@@ -1,8 +1,24 @@
-import { lpad } from './common';
+import { lpad } from "./common";
+import { Page } from "./page";
+import { IElement } from "./element";
+
+export interface ISitemap {
+	name: string;
+	url: string;
+	elements?: IElement[];
+}
 
 export class Sitemap
 {
-	constructor(public name: string, public url: string) {}
+	public name: string;
+	public url: string;
+	public elements: IElement[];
+
+	constructor(sitemap: ISitemap) {
+		this.name = sitemap.name;
+		this.url = sitemap.url;
+		this.elements = sitemap.elements;
+	}
 
 	getUrls() {
 		var urls: string[] = [];
@@ -26,11 +42,13 @@ export class Sitemap
 					urls.push(matches[1]+i+matches[6]);
 				}
 			}
-		}
-		else {
+		} else {
 			urls.push(this.url);
 		}
 		return urls;
 	}
 
+	getPages() {
+		return this.getUrls().map( (url) => new Page(url, this.elements) );
+	}
 }
