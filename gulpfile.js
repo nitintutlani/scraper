@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var del = require('del');
 var ts = require('gulp-typescript');
 var mocha = require('gulp-mocha');
+var connect = require('gulp-connect');
 
 var tsProject = ts.createProject('tsconfig.json');
 
@@ -18,6 +19,13 @@ gulp.task('compile', function () {
 	return tsResult.js.pipe(gulp.dest(tsProject.config.compilerOptions.outDir));
 });
 
+gulp.task('connect', function() {
+	connect.server({
+		root: 'docs/sample',
+		port: 8081
+	});
+});
+
 gulp.task('test', function () {
     return gulp.src(tsProject.config.compilerOptions.outDir + '/**/*.spec.js', {read: false})
         .pipe(mocha({reporter: 'nyan'}));
@@ -31,7 +39,7 @@ gulp.task('build:clean', ['clean:build'], function() {
 	gulp.start('build:incremental');
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', ['connect'], function() {
 	gulp.watch(tsProject.config.files, ['build:incremental']);
 });
 
