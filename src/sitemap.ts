@@ -48,7 +48,7 @@ export class Sitemap
 		return urls;
 	}
 
-	getPages() {
-		return this.getUrls().map( (url) => new Page(url, this.elements) );
-	}
+	// getPages() {
+	// 	return this.getUrls().map( (url) => new Page(url, this.elements) );
+	// }
 }

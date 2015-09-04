@@ -1,5 +1,4 @@
 var common_1 = require("./common");
-var page_1 = require("./page");
 var Sitemap = (function () {
     function Sitemap(sitemap) {
         this.name = sitemap.name;
@@ -32,10 +31,6 @@ var Sitemap = (function () {
             urls.push(this.url);
         }
         return urls;
-    };
-    Sitemap.prototype.getPages = function () {
-        var _this = this;
-        return this.getUrls().map(function (url) { return new page_1.Page(url, _this.elements); });
     };
     return Sitemap;
 })();
