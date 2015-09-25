@@ -18,11 +18,14 @@
     "files": [
         "./src/common.ts",
         "./src/element.ts",
+        "./src/link.ts",
         "./src/page.ts",
         "./src/scraper.ts",
         "./src/sitemap.ts",
-        "./src/test/page.spec.ts",
+        "./src/test/element.spec.ts",
+        "./src/test/link.spec.ts",
         "./src/test/sitemap.spec.ts",
+        "./src/text.ts",
         "./typings/tsd.d.ts"
     ]
 }

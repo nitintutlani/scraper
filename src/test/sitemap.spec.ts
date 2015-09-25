@@ -2,10 +2,27 @@ import { expect }  from  "chai";
 import { Sitemap } from  "../sitemap";
 
 describe("Class Sitemap", function() {
-	var smSingle = new Sitemap({ name: "test", url: "www.example.com/page"});
-	var smRange = new Sitemap({ name: "test", url: "www.example.com/page/[1-5]"});
-	var smJump = new Sitemap({ name: "test", url: "www.example.com/page/[1-100:10]"});
-	var smPad = new Sitemap({ name: "test", url: "www.example.com/page/[001-003]"});
+	var smSingle = new Sitemap({kind: "sitemap", name: "smSingle", url: "www.example.com/page"});
+	var smRange = new Sitemap({kind: "sitemap", url: "www.example.com/page/[1-5]", elements: [ {"kind": "text"}, {"kind": "link"} ]});
+	var smJump = new Sitemap({kind: "sitemap", url: "www.example.com/page/[1-100:10]"});
+	var smPad = new Sitemap({kind: "sitemap", url: "www.example.com/page/[001-003]"});
+
+	describe("sitemap properties", function() {
+		it("property kind", function() {
+			expect(smSingle.kind).to.be.equal("sitemap");
+		});
+		it("property name", function() {
+			expect(smSingle.name).to.be.equal("smSingle");
+		});
+		it("property elements", function() {
+			var elements = smRange.elements;
+			expect(elements).length(5);
+			elements.forEach((elem) => {
+				expect(elem.elements).length(2);
+			});
+		});
+	});
+
 	describe("method getUrls", function() {
 		it("single page sitemap", function() {
 			expect(smSingle.getUrls())
@@ -28,4 +45,5 @@ describe("Class Sitemap", function() {
 				.contain("www.example.com/page/002");
 		});
 	});
+
 });
